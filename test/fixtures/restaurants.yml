@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  rating: 1
+  delivery_time: 1
+  has_ten_bis: false
+
+two:
+  name: MyString
+  address: MyText
+  rating: 1
+  delivery_time: 1
+  has_ten_bis: false
