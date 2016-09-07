@@ -27,3 +27,7 @@
 .idea/vcs.xml
 .idea/workspace.xml
 db/schema.rb
+.idea/runConfigurations/Development__cuisine.xml
+.idea/runConfigurations/Production__cuisine.xml
+.idea/runConfigurations/spec__cuisine.xml
+.idea/runConfigurations/test__cuisine.xml
