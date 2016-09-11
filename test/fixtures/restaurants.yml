@@ -6,6 +6,7 @@ one:
   rating: 1
   delivery_time: 1
   has_ten_bis: false
+  cuisine_type: one
 
 two:
   name: MyString
@@ -13,3 +14,4 @@ two:
   rating: 1
   delivery_time: 1
   has_ten_bis: false
+  cuisine_type: two

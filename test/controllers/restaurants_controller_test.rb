@@ -17,7 +17,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create restaurant" do
     assert_difference('Restaurant.count') do
-      post restaurants_url, params: { restaurant: { address: @restaurant.address, delivery_time: @restaurant.delivery_time, has_ten_bis: @restaurant.has_ten_bis, name: @restaurant.name, rating: @restaurant.rating } }
+      post restaurants_url, params: { restaurant: { address: @restaurant.address, delivery_time: @restaurant.delivery_time, has_ten_bis: @restaurant.has_ten_bis, name: 'New restaurant', rating: @restaurant.rating, cuisine_type: :one } }
     end
 
     assert_redirected_to restaurant_url(Restaurant.last)
