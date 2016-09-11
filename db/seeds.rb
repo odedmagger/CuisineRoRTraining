@@ -5,3 +5,46 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Add seed cuisines
+CuisineType.delete_all
+Restaurant.delete_all
+
+asian = CuisineType.create(name: 'Asian', image_icon: 'D')
+mexican = CuisineType.create(name: 'Mexican', image_icon: 'A')
+CuisineType.create(name: 'Burgers', image_icon: 'B')
+
+Restaurant.create(
+                  name: 'Giraffe',
+                  address: 'Ibn Gvirol 100, Tel Aviv',
+                  rating: 2,
+                  delivery_time: 90,
+                  has_ten_bis: true,
+                  cuisine_type_id: asian.id
+)
+
+Restaurant.create(
+    name: 'Chop chop',
+    address: 'Ibn Gvirol 2, Tel Aviv',
+    rating: 2,
+    delivery_time: 30,
+    has_ten_bis: false,
+    cuisine_type_id: asian.id
+)
+
+Restaurant.create(
+              name: 'Herzog',
+              address: 'Ibn Gvirol 60, Tel Aviv',
+              rating: 3,
+              delivery_time: 45,
+              has_ten_bis: true
+)
+
+Restaurant.create(
+              name: 'Pablo The Mexican',
+              address: 'Dubnov 8, Tel Aviv',
+              rating: 1,
+              delivery_time: 120,
+              has_ten_bis: true,
+              cuisine_type_id: mexican.id
+)
