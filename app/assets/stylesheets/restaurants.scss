@@ -1,3 +1,29 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#banner {
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  background: image-url("page_background.png") no-repeat center center;
+
+  #inner-banner {
+    align-self: center;
+    --webkit-align-self: center;
+    padding: 0.5em;
+    flex: 0;
+  }
+
+  p {
+    margin: 0px;
+  }
+}
+
+#details {
+  margin: 30px
+}
