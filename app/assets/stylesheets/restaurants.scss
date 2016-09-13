@@ -4,26 +4,50 @@
 
 #banner {
   color: #FFFFFF;
+  -webkit-text-stroke: 1px black;
   text-align: center;
   margin: 0px;
   padding: 0px;
   height: 250px;
   display: flex;
   justify-content: center;
-  background: image-url("page_background.png") no-repeat center center;
+  background: #000000 image-url("page_background.png") no-repeat center center;
+  background-size: cover;
 
   #inner-banner {
     align-self: center;
     --webkit-align-self: center;
     padding: 0.5em;
-    flex: 0;
+    line-height: 48px;
   }
 
+  h1 {
+    font-size: 48px;
+  }
   p {
-    margin: 0px;
+    font-size: 30px;
   }
 }
 
 #details {
-  margin: 30px
+  margin: 30px;
+
+  #restaurants-container {
+    #restaurants-list {
+      table {
+        border-spacing: 0px 10px;
+        width: 60%;
+      }
+      td {
+        background-color: #FFFFFF;
+        padding: 25px 10px;
+      }
+
+      #restaurant-title {
+        font-weight: bold;
+        font-size: 120%;
+      }
+
+    }
+  }
 }
