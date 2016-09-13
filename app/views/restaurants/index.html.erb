@@ -3,6 +3,7 @@
     <h1>Cuisine</h1>
     <p>Let's find lunch, now!</p>
   </div>
+  <span id="add-restaurant"><%= link_to image_tag("button_add_restaurant.png"), new_restaurant_path %></span>
 </div>
 <div id="details">
   <div id="details-header">
@@ -15,7 +16,7 @@
         <tbody>
           <% @restaurants.each do |restaurant| %>
             <tr>
-              <td><%= restaurant.cuisine_type&.image_icon %></td>
+              <td class="cuisine-icon-cell"><%= restaurant.cuisine_type&.image_icon %></td>
               <td>
                 <span id="restaurant-title"><%= restaurant.name %></span>
                 <% if restaurant.has_ten_bis %>
@@ -47,7 +48,4 @@
     </div>
   </div>
   <br>
-
-  <%= link_to 'New Restaurant', new_restaurant_path %>
-
 </div>

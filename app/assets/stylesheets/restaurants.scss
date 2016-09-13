@@ -29,6 +29,14 @@
   p {
     font-size: 30px;
   }
+
+  #add-restaurant {
+    position: absolute; top: 5px; right: 5px;
+
+    a:hover {
+      background-color: transparent;
+    }
+  }
 }
 
 #details {
