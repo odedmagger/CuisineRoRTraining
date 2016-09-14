@@ -6,10 +6,11 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    if params[:select_cuisine] and params[:select_cuisine] != FILTER_ALL
-      cuisine_type_name = params[:select_cuisine]
-      cuisine_type = CuisineType.find_by(name: cuisine_type_name)
-      @restaurants = cuisine_type&.restaurants || []  #Restaurant.select(cuisine_type_id: cuisine_type&.id) || Restaurant.none
+    @selected_cuisine_name = params[:select_cuisine] || FILTER_ALL
+
+    if @selected_cuisine_name != FILTER_ALL
+      selected_cuisine_type = CuisineType.find_by(name: @selected_cuisine_name)
+      @restaurants = selected_cuisine_type&.restaurants || []  #Restaurant.select(cuisine_type_id: cuisine_type&.id) || Restaurant.none
     else
       @restaurants = Restaurant.all
     end

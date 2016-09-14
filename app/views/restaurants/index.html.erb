@@ -11,11 +11,25 @@
     <p id="notice"><%= notice %></p>
   </div>
   <div id="filters">
-    <%= form_tag restaurant_index_path class: 'filters' do %>
-        <% cuisine_names = CuisineType.all.map { |cuisine_type| cuisine_type.name } %>
-        <%= select_tag 'select_cuisine',
-                     options_for_select(cuisine_names.unshift(RestaurantsController::FILTER_ALL), params[:select_cuisine] || RestaurantsController::FILTER_ALL),
-                     onchange: 'this.form.submit()' %>
+
+    <%= form_tag restaurant_index_path do %>
+        <table>
+          <tr>
+            <td>
+              Cuisine<br/>
+              <% cuisine_names = CuisineType.all.map { |cuisine_type| cuisine_type.name } %>
+              <%= select_tag 'select_cuisine',
+                           options_for_select(cuisine_names.unshift(RestaurantsController::FILTER_ALL), @selected_cuisine_name),
+                           onchange: 'this.form.submit()', class: "filter_select"%>
+            </td>
+            <td>
+              Rating<br/>
+              <%= select_tag 'select_rating',
+                             options_for_select((0..3).to_a.unshift(RestaurantsController::FILTER_ALL), params[:select_rating] || RestaurantsController::FILTER_ALL),
+                             onchange: 'this.form.submit()', class: "filter_select"%>
+            </td>
+          </tr>
+        </table>
     <% end %>
   </div>
 
