@@ -6,13 +6,10 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    if params[:select_cuisine] and params[:select_cuisine] != :all
+    if params[:select_cuisine] and params[:select_cuisine] != FILTER_ALL
       cuisine_type_name = params[:select_cuisine]
-      print "ODED: cuisine type name #{cuisine_type_name}\n" # TODO REMOVE
       cuisine_type = CuisineType.find_by(name: cuisine_type_name)
-      print "ODED: cuisine type name FROM TYPE #{cuisine_type&.name}\n" # TODO REMOVE
       @restaurants = cuisine_type&.restaurants || []  #Restaurant.select(cuisine_type_id: cuisine_type&.id) || Restaurant.none
-      print "ODED: Restaurants: #{@restaurants}\n"  # TODO REMOVE
     else
       @restaurants = Restaurant.all
     end
