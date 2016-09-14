@@ -28,6 +28,12 @@
                              options_for_select((0..3).to_a.unshift(RestaurantsController::FILTER_ALL), params[:select_rating] || RestaurantsController::FILTER_ALL),
                              onchange: 'this.form.submit()', class: "filter_select"%>
             </td>
+            <td>
+              Max. time to delivery<br/>
+              <%= select_tag 'select_max_delivery_time',
+                             options_for_select((15..120).step(15).to_a.unshift(RestaurantsController::FILTER_UNLIMITED), params[:select_max_delivery_time] || RestaurantsController::FILTER_UNLIMITED),
+                             onchange: 'this.form.submit()', class: "filter_select"%>
+            </td>
           </tr>
         </table>
     <% end %>

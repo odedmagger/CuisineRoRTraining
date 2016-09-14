@@ -2,17 +2,30 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   FILTER_ALL = "All"
+  FILTER_UNLIMITED = "Unlimited"
 
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @selected_cuisine_name = params[:select_cuisine] || FILTER_ALL
+    @selected_cuisine_name      = params[:select_cuisine]           || FILTER_ALL
+    @selected_rating            = params[:select_rating]            || FILTER_ALL
+    @selected_max_delivery_time = params[:select_max_delivery_time] || FILTER_UNLIMITED
 
     if @selected_cuisine_name != FILTER_ALL
       selected_cuisine_type = CuisineType.find_by(name: @selected_cuisine_name)
       @restaurants = selected_cuisine_type&.restaurants || []  #Restaurant.select(cuisine_type_id: cuisine_type&.id) || Restaurant.none
     else
       @restaurants = Restaurant.all
+    end
+
+    if @selected_rating != FILTER_ALL
+      selected_rating_i = @selected_rating.to_i
+      @restaurants = @restaurants.select { |restaurant| restaurant.rating == selected_rating_i }
+    end
+
+    if @selected_max_delivery_time != FILTER_UNLIMITED
+      selected_max_delivery_time_i = @selected_max_delivery_time.to_i
+      @restaurants = @restaurants.select { |restaurant| restaurant.delivery_time <= selected_max_delivery_time_i }
     end
   end
 
