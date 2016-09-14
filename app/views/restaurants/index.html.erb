@@ -14,7 +14,7 @@
     <%= form_tag restaurant_index_path class: 'filters' do %>
         <% cuisine_names = CuisineType.all.map { |cuisine_type| cuisine_type.name } %>
         <%= select_tag 'select_cuisine',
-                     options_for_select(cuisine_names.unshift(RestaurantsController::FILTER_ALL), 'Hamburger, vegies...'),
+                     options_for_select(cuisine_names.unshift(RestaurantsController::FILTER_ALL), params[:select_cuisine] || RestaurantsController::FILTER_ALL),
                      onchange: 'this.form.submit()' %>
     <% end %>
   </div>
