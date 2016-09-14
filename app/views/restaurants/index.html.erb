@@ -5,15 +5,27 @@
   </div>
   <span id="add-restaurant"><%= link_to image_tag("button_add_restaurant.png"), new_restaurant_path %></span>
 </div>
+
 <div id="details">
   <div id="details-header">
     <p id="notice"><%= notice %></p>
   </div>
-  <div id="filters"></div>
+  <div id="filters">
+    <%= form_tag restaurant_index_path class: 'filters' do %>
+        <% cuisine_names = CuisineType.all.map { |cuisine_type| cuisine_type.name } %>
+        <%= select_tag 'select_cuisine',
+                     options_for_select(cuisine_names.unshift(RestaurantsController::FILTER_ALL), 'Hamburger, vegies...'),
+                     onchange: 'this.form.submit()' %>
+    <% end %>
+  </div>
+
   <div id="restaurants-container">
     <div id="restaurants-list">
       <table>
         <tbody>
+          <% if @restaurants.empty? %>
+            <tr><td id="no-restaurants-notice">No restaurants match your search criteria</td></tr>
+          <% end %>
           <% @restaurants.each do |restaurant| %>
             <tr>
               <td class="cuisine-icon-cell"><%= restaurant.cuisine_type&.image_icon %></td>
