@@ -43,8 +43,18 @@
   margin: 30px;
 
   #filters {
-    #filter_select {
+    #filters-table {
+      table-layout: fixed;
+      width: 100%;
+    }
 
+    td {
+      font-size: 110%;
+    }
+
+    .filter_select {
+      width: 80%;
+      font-size: 140%;
     }
   }
 
