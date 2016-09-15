@@ -10,9 +10,10 @@
 CuisineType.delete_all
 Restaurant.delete_all
 
-asian = CuisineType.create(name: 'Asian', image_icon: 'D')
-mexican = CuisineType.create(name: 'Mexican', image_icon: 'A')
-CuisineType.create(name: 'Burgers', image_icon: 'B')
+asian = CuisineType.create(name: 'Asian', image_icon: 'I')
+mexican = CuisineType.create(name: 'Mexican', image_icon: 'H')
+seafood = CuisineType.create(name: 'Seafood', image_icon: 'C')
+CuisineType.create(name: 'Burgers', image_icon: 'A')
 
 Restaurant.create(
                   name: 'Giraffe',
@@ -47,4 +48,22 @@ Restaurant.create(
               delivery_time: 120,
               has_ten_bis: true,
               cuisine_type_id: mexican.id
+)
+
+Restaurant.create(
+    name: 'Stinkin shrimp',
+    address: 'Hanatziv 42, Tel Aviv',
+    rating: 1,
+    delivery_time: 180,
+    has_ten_bis: false,
+    cuisine_type_id: seafood.id
+)
+
+Restaurant.create(
+    name: 'Goocha',
+    address: 'Ibn Gvirol 8, Tel Aviv',
+    rating: 2,
+    delivery_time: 110,
+    has_ten_bis: true,
+    cuisine_type_id: seafood.id
 )

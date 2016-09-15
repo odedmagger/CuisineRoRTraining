@@ -50,6 +50,7 @@
 
     td {
       font-size: 110%;
+      white-space: nowrap;
     }
 
     .filter_select {
@@ -64,9 +65,18 @@
         border-spacing: 0px 10px;
         width: 60%;
       }
+
+      td.cuisine-icon-cell {
+        font-family: 'ef_cuisinesregular', Arial, sans-serif;
+        font-size: 400%;
+        color: #9c8178;
+        width: 1em;
+      }
+
       td {
         background-color: #FFFFFF;
         padding: 25px 10px;
+        white-space: nowrap;
       }
 
       #restaurant-title {
